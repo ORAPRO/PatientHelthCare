@@ -26,6 +26,7 @@ public class Cronjobs  extends Configured implements Tool {
 		}
 		propertyReader = PropertyReader.getHealthcarePropertyReader();
 		propertyReader.loadProperties(args[0]);
+		System.out.println(propertyReader.getAllProperties().toString());
 
 		System.out.println(propertyReader.getAllProperties().toString());
 		
