@@ -1,6 +1,5 @@
 package com.hc.util;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -29,10 +28,9 @@ public class PropertyReader {
 			System.out.println("baselocation :"+baselocation);
 			propertyReader.getAllProperties();
 		}
-	public  Properties loadProperties(){
+	public  Properties loadProperties(String inputFile){
 	try {
-		File file = new File("C:/Users/AdiVenkataReddy/Desktop/HelthCare/resources/HealthCare.properties");
-		FileInputStream fileInput = new FileInputStream(file);
+		FileInputStream fileInput = new FileInputStream(inputFile);
 		properties = new Properties();
 		properties.load(fileInput);
 		fileInput.close();
@@ -53,7 +51,6 @@ public class PropertyReader {
 		}
 	}
 	public String getProperty(String key){
-			loadProperties();
 			if(properties!=null)
 			{
 				return properties.getProperty(key);
@@ -64,7 +61,6 @@ public class PropertyReader {
 			public Properties getAllProperties(){
 			System.out.println("properties:" +properties);
 			return properties;
-			
 		}
 	
 	

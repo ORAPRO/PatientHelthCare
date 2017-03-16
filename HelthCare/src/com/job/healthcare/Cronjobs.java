@@ -25,7 +25,8 @@ public class Cronjobs  extends Configured implements Tool {
 	       return;
 		}
 		propertyReader = PropertyReader.getHealthcarePropertyReader();
-		propertyReader.loadProperties();
+		propertyReader.loadProperties(args[0]);
+
 		System.out.println(propertyReader.getAllProperties().toString());
 		
 		//step-2 Initialize configuration
@@ -34,7 +35,8 @@ public class Cronjobs  extends Configured implements Tool {
 		
 		//step-3 Run ToolRunner.run method to set the arguments to config
 		try{
-			int i = ToolRunner.run(con, new Cronjobs(), args);
+			int i 
+			= ToolRunner.run(con, new Cronjobs(), args);
 			if(i == 0){
 				System.out.println(HDFSUtil.SUCCESS);
 			}else{
